@@ -1,0 +1,16 @@
+site_name: Python Training
+repo_url: https://github.com/joaofeitoza13/python-training
+repo_name: joaofeitoza13/python-training
+edit_uri: tree/main/docs
+
+theme:
+  name: material 
+  language: pt-BR
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+  - stylesheets/extra.css
