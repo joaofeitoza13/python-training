@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "python-training"
+version = "0.1.0"
+description = "Course to familiarize with new Python features."
+authors = ["João Feitoza Bisneto"]
+readme = "README.md"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.4.0"
+python-dotenv = "^1.0.0"
+black = "^23.7.0"
+flake8 = "^6.1.0"
+isort = "^5.12.0"
+taskipy = "^1.12.2"
+pytest = "^8.0.1"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.group.doc.dependencies]
+mkdocs-material = "^9.5.9"
+mkdocstrings = "^0.24.0"
+mkdocstrings-python = "^1.8.0"
+
+[tool.black]
+line-length = 95
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.flake8]
+max-line-length = 95
+exclude = [".git", "__pycache__", "dist"]
+
+[tool.isort]
+profile = "django"
+combine_as_imports = true
+include_trailing_comma = true
+line_length = 95
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules"
+
+[tool.taskipy.tasks]
+lint = "black . && isort ."
+docs = "mkdocs serve"
+pre_test = "task lint"
+test = "pytest -s -x --cov=notas_musicais -vv"
+post_test = "devfox coverage html"
+publish = "poetry publish -u __token__ -p $NOTAS_MUSICAIS_TOKEN"
