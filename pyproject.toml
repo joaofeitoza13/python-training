@@ -5,12 +5,17 @@ description = "Course to familiarize with new Python features."
 authors = ["João Feitoza Bisneto"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+escalas = "python_training.cli:app"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+typer = "^0.9.0"
+rich = "^13.7.1"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.4.0"
