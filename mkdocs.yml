@@ -14,3 +14,12 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+watch:
+   - python_training
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [python_training]
