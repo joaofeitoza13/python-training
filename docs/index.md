@@ -4,10 +4,12 @@
 
 ## Como usar?
 
-Você pode chamar as escalas via linha de comando. Por exemplo:
+Notas musicais é um CLI para ajudar na formação de escalas e acordes.
+
+Toda a aplicação é baseada em um comando chamado ```notas-musicais```. Esse comando tem subcomandos relacionados a cada ação que a aplicação pode realizar: ```escalas``` e ```acordes```.
 
 ```bash
-poetry run escalas
+poetry run notas-musicais escala
 ```
 
 Retornando os graus e as notas correspondentes a essa escala:
@@ -26,7 +28,7 @@ Retornando os graus e as notas correspondentes a essa escala:
 O primeiro parâmetro do CLI é a tônica da escala que deseja exibir. Desta forma, você pode alterar a escala retornada. Por exemplo, a escala de F#:
 
 ```bash
-poetry run escalas F#
+poetry run notas-musicais escala F# maior
 ```
 
 Resultado em:
@@ -44,7 +46,7 @@ Resultado em:
 Você pode alterar a tonalidade da escala também! Esse é o segundo parâmetro da linha de comando. Por exemplo, a escala de D# maior:
 
 ```bash
-poetry run escalas D# maior
+poetry run notas-musicais escala D# menor
 ```
 
 ```bash
@@ -55,12 +57,39 @@ poetry run escalas D# maior
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
+## Acordes
+
+Uso básico
+
+```bash
+{{ commands.run }} acorde
+┏━━━┳━━━━━┳━━━┓
+┃ I ┃ III ┃ V ┃
+┡━━━╇━━━━━╇━━━┩
+│ C │ E   │ G │
+└───┴─────┴───┘
+```
+
+### Variações na cifra
+
+```bash
+{{ commands.run }} acorde C+
+┏━━━┳━━━━━┳━━━━┓
+┃ I ┃ III ┃ V+ ┃
+┡━━━╇━━━━━╇━━━━┩
+│ C │ E   │ G# │
+└───┴─────┴────┘
+```
+
+Até o momento você usar acordes maiores, menores, dimunito e aumentados
+
+
 ## Mais informações sobre o CLI
 
 Para descobrir outras opções, você pode usar a flag `--help`:
 
 ```bash
-poetry run escalas --help
+poetry run notas-musicais --help
 
 Usage: escalas [OPTIONS] [TONICA] [TONALIDADE]                                      
                                                                                      
