@@ -6,7 +6,7 @@ authors = ["João Feitoza Bisneto"]
 readme = "README.md"
 
 [tool.poetry.scripts]
-escalas = "python_training.cli:app"
+notas-musicais = "python_training.cli:app"
 
 [build-system]
 requires = ["poetry-core"]
