@@ -1,3 +1,3 @@
-# Acordes 
+# Acordes
 
 ::: acordes
