@@ -2,15 +2,15 @@ from python_training.escalas import NOTAS, escala
 
 
 def _menor(cifra):
-    nota = cifra.split("m")[0]
+    nota = cifra.split('m')[0]
 
-    if "+" in cifra:
-        tonica, terca, quinta = triade(nota, "menor")
+    if '+' in cifra:
+        tonica, terca, quinta = triade(nota, 'menor')
         notas = [tonica, terca, semitom(quinta, intervalo=+1)]
-        graus = ["I", "III-", "V+"]
+        graus = ['I', 'III-', 'V+']
     else:
-        notas = triade(nota, "menor")
-        graus = ["I", "III-", "V"]
+        notas = triade(nota, 'menor')
+        graus = ['I', 'III-', 'V']
 
     return notas, graus
 
@@ -57,20 +57,20 @@ def acorde(cifra: str) -> dict[list[str], list[str]]:
 
     graus = (0, 2, 4)
 
-    if "m" in cifra:
+    if 'm' in cifra:
         notas, graus = _menor(cifra)
-    elif "°" in cifra:
-        nota = cifra.split("°")[0]
-        tonica, terca, quinta = triade(nota, "menor")
+    elif '°' in cifra:
+        nota = cifra.split('°')[0]
+        tonica, terca, quinta = triade(nota, 'menor')
         notas = [tonica, terca, semitom(quinta, -1)]
-        graus = ["I", "III-", "V-"]
-    elif "+" in cifra:
-        nota = cifra.split("+")[0]
-        tonica, terca, quinta = triade(nota, "maior")
+        graus = ['I', 'III-', 'V-']
+    elif '+' in cifra:
+        nota = cifra.split('+')[0]
+        tonica, terca, quinta = triade(nota, 'maior')
         notas = [tonica, terca, semitom(quinta, +1)]
-        graus = ["I", "III", "V+"]
+        graus = ['I', 'III', 'V+']
     else:
-        notas = triade(cifra, "maior")
-        graus = ["I", "III", "V"]
+        notas = triade(cifra, 'maior')
+        graus = ['I', 'III', 'V']
 
-    return {"notas": notas, "graus": graus}
+    return {'notas': notas, 'graus': graus}

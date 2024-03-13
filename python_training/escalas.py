@@ -1,8 +1,8 @@
-NOTAS = "C C# D D# E F F# G G# A A# B".split()
+NOTAS = 'C C# D D# E F F# G G# A A# B'.split()
 ESCALAS = {
-    "maior": (0, 2, 4, 5, 7, 9, 11),
-    "menor": (0, 2, 3, 5, 7, 8, 10),
-    "diminuto": (0, 2, 3, 5, 7, 8, 10),
+    'maior': (0, 2, 4, 5, 7, 9, 11),
+    'menor': (0, 2, 3, 5, 7, 8, 10),
+    'diminuto': (0, 2, 3, 5, 7, 8, 10),
 }
 
 
@@ -33,10 +33,10 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
         intervalos = ESCALAS[tonalidade]
         tonica_pos = NOTAS.index(tonica)
     except ValueError:
-        raise ValueError(f"Essa nota não existe, tente uma dessas {NOTAS}")
+        raise ValueError(f'Essa nota não existe, tente uma dessas {NOTAS}')
     except KeyError:
         raise KeyError(
-            f"Essa escala não existe ou não foi implementada, tente uma dessas {list(ESCALAS.keys())}"
+            f'Essa escala não existe ou não foi implementada, tente uma dessas {list(ESCALAS.keys())}'
         )
 
     temp = []
@@ -45,4 +45,4 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
         nota = (tonica_pos + intervalo) % 12
         temp.append(NOTAS[nota])
 
-    return {"notas": temp, "graus": ["I", "II", "III", "IV", "V", "VI", "VII"]}
+    return {'notas': temp, 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}

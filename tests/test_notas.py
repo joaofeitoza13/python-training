@@ -15,14 +15,14 @@ C    E    G
 
 
 @mark.parametrize(
-    "nota,esperado",
+    'nota,esperado',
     [
-        ("C", ["C", "E", "G"]),
-        ("Cm", ["C", "D#", "G"]),
-        ("C°", ["C", "D#", "F#"]),
-        ("C+", ["C", "E", "G#"]),
+        ('C', ['C', 'E', 'G']),
+        ('Cm', ['C', 'D#', 'G']),
+        ('C°', ['C', 'D#', 'F#']),
+        ('C+', ['C', 'E', 'G#']),
         # ("Cm+", ["C", "D#", "G#"]),
-        ("F#", ["F#", "A#", "C#"]),
+        ('F#', ['F#', 'A#', 'C#']),
     ],
 )
 def test_acorde_deve_retornar_as_notas_correspondentes(nota, esperado):
@@ -32,12 +32,12 @@ def test_acorde_deve_retornar_as_notas_correspondentes(nota, esperado):
 
 
 @mark.parametrize(
-    "cifra,esperado",
+    'cifra,esperado',
     [
-        ("C", ["I", "III", "V"]),
-        ("Cm", ["I", "III-", "V"]),
-        ("C°", ["I", "III-", "V-"]),
-        ("C+", ["I", "III", "V+"]),
+        ('C', ['I', 'III', 'V']),
+        ('Cm', ['I', 'III-', 'V']),
+        ('C°', ['I', 'III-', 'V-']),
+        ('C+', ['I', 'III', 'V+']),
         # ("Cm+", ["I", "III", "V+"]),
     ],
 )
