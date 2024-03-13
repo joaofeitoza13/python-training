@@ -3,6 +3,7 @@ from rich.table import Table
 from typer import Argument, Typer
 
 from python_training.acordes import acorde as _acorde
+from python_training.campo_harmonico import campo_harmonico as _campo_harmonico
 from python_training.escalas import escala as _escala
 
 console = Console()
@@ -11,8 +12,8 @@ app = Typer()
 
 @app.command()
 def escala(
-    tonica: str = Argument("c", help="Tônica da escala"),
-    tonalidade: str = Argument("maior", help="Tonalidade da escala"),
+    tonica: str = Argument('c', help='Tônica da escala'),
+    tonalidade: str = Argument('maior', help='Tonalidade da escala'),
 ):
     table = Table()
 
@@ -27,10 +28,27 @@ def escala(
 
 
 @app.command()
-def acorde(cifra: str = Argument("C", help="Cifra de um acorde")):
+def acorde(cifra: str = Argument('C', help='Cifra de um acorde')):
     table = Table()
 
     notas, graus = _acorde(cifra).values()
+
+    for grau in graus:
+        table.add_column(grau)
+
+    table.add_row(*notas)
+
+    console.print(table)
+
+
+@app.command()
+def campo_harmonico(
+    tonica: str = Argument('c', help='Tônica do campo harmônico'),
+    tonalidade: str = Argument('maior', help='Tonalidade do campo harmônico'),
+):
+    table = Table()
+
+    notas, graus = _campo_harmonico(tonica, tonalidade).values()
 
     for grau in graus:
         table.add_column(grau)
