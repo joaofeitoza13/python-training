@@ -1,0 +1,12 @@
+name: pipelina
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on:
+      debian-latest
+    steps:
+      - name: Roda um comando
+        run: acho $(pwd)
+      - name: Roda outro comando
+        run: echo $(ls)
