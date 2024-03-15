@@ -1,4 +1,4 @@
-name: pipelina
+name: pipeline
 on: [push, pull_request]
 
 jobs:
@@ -6,7 +6,7 @@ jobs:
     runs-on:
       ubuntu-latest
     steps:
-      - name: Roda um comando
-        run: echo $(pwd)
+      - name: Clones the repository
+        run: actions/checkout@v4.1.1
       - name: Roda outro comando
         run: echo $(ls)
