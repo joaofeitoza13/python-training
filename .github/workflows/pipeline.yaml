@@ -7,6 +7,6 @@ jobs:
       ubuntu-latest
     steps:
       - name: Clones the repository
-        run: actions/checkout@v4.1.1
+        run: actions/checkout@v4
       - name: Roda outro comando
         run: echo $(ls)
