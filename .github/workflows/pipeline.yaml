@@ -7,6 +7,6 @@ jobs:
       ubuntu-latest
     steps:
       - name: Roda um comando
-        run: acho $(pwd)
+        run: echo $(pwd)
       - name: Roda outro comando
         run: echo $(ls)
