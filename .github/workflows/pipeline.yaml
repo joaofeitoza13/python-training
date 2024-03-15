@@ -8,5 +8,8 @@ jobs:
     steps:
       - name: Clones the repository
         uses: actions/checkout@v4
-      - name: Roda outro comando
-        run: echo $(ls)
+      - name: Add Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
