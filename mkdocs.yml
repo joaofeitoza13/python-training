@@ -16,10 +16,15 @@ extra_css:
   - stylesheets/extra.css
 
 watch:
-   - python_training
+  - python_training
 
 plugins:
-- mkdocstrings:
-    handlers:
-      python:
-        paths: [python_training]
+  - macros
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [python_training]
+
+extra:
+  commands:
+    run: poetry run notas-musicais
