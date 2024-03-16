@@ -5,13 +5,27 @@ jobs:
   test:
     runs-on:
       ubuntu-latest
+
     steps:
       - name: Clones the repository
         uses: actions/checkout@v4
+
       - name: Add Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Add Poetry
         run: pip install poetry
-          
+      
+      - name: Install project dependencies
+        run: poetry install --without doc
+
+      - name: Run tests
+        run: poetry run task test
+      
+      - name: Upload tests coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
